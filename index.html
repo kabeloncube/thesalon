@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nail Salon</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <!-- Nav-Bar -->
+    <nav class="desktop-navbar">
+        <div class="logo">Logo</div>
+        <div class="nav-bar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#" >Bookings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav-bar -->
+    <div class="mobile">
+        <div class="mobile-logo">Logo</div>
+        <div class="menu-icon" onclick="openNav()">
+            <div class="background">
+                <button class="menu__icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn " onclick="closeNav()">
+                <div class="background">
+                    <button class="menu__icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </a>
+            <a href="index.html">Home</a>
+            <a href="#">About Us</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="#">Pricing</a>
+            <a href="#" id="bookingLinkMobile">Bookings</a>
+            <a href="#" class="login" onclick="openLoginForm()">Login</a>
+            <a href="#" class="register" onclick="openSignUpForm()">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Modal for Login and Sign Up Forms -->
+    <div class="modal" id="formModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="formContainer" id="loginForm">
+                <h1>Login</h1>
+                <label for="username">Username</label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+                <label for="password">Password</label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <button type="submit" class="form-btn">Login</button>
+            </div>
+            <div class="formContainer" id="signUpForm">
+                <h1>Sign Up</h1>
+                <label for="username">Username</label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" placeholder="Enter Phone Number" name="phoneNumber" required>
+                <label for="password">Password</label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" placeholder="Confirm Password" name="confirmPassword" required>
+                <button type="submit" class="form-btn">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Bookings -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h1>Booking</h1>
+            <p>Provide your details </p>
+            <p>We will contact you to confirm the booking</p>
+            <form id="bookingForm" action="#">
+              <!--  <label for="serviceType">Choose a Service:</label>
+                <select id="serviceType" name="serviceType">
+                    <option value="manicure">Manicure</option>
+                    <option value="haircut">Haircut</option>
+                </select>-->
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder = "Enter Name" name="name" required>
+                <label for="contact">Contact Information:</label>
+                <input type="text" id="contact" placeholder = "phone Number" name="contact" required>
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Wrapper for Desktop -->
+    <div class="wrapper desktop">
+        <section class="top-section about">
+            <div class="top-section-content">
+                <h2>Welcome To Our Nail Salon</h2>
+                <h1>Nails Reinvented</h1>
+                <p>Life is too short to have boring nails.</p>
+                <button class="top-section-button" id="gallery"><a href="gallery.html">View Gallery</a></button>
+            </div>
+        </section>
+        <section class="mid-section" id="about">
+            <div class="mid-section-content about">
+                <p>Most Loved Moments</p>
+                <h1>About Us</h1>
+                <div class="div-container">
+                    <div class="divs one"></div>
+                    <div class="divs mid-div">
+                        <p>Design Perception</p>
+                        <h1>Traditional & Modern</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                        </p>
+                        <button class="bookings" id="bookingButtonMobile">Bookings</button>
+                    </div>
+                    <div class="divs two"></div>
+                </div>
+            </div>
+        </section>
+        <section class="bottom-section" id="pricing">
+            <div class="bottom-section-content">
+                <h1>Our Prices</h1>
+                <div class="div-container">
+                    <div class="haircut-price-list divs">
+                        <div class="list-items">
+                            <p class="items">item 1</p>
+                            <span class="line"></span>
+                            <p class="price">R0.00</p>
+                        </div>
+                        <div class="list-items">
+                            <p class="items">item 1</p>
+                            <span class="line"></span>
+                            <p class="price">R0.00</p>
+                        </div>
+                        <div class="list-items">
+                            <p class="items">item 1</p>
+                            <span class="line"></span>
+                            <p class="price">R0.00</p>
+                        </div>
+                        <div class="list-items">
+                            <p class="items">item 1</p>
+                            <span class="line"></span>
+                            <p class="price">R0.00</p>
+                        </div>
+                        <div class="list-items">
+                            <p class="items">item 1</p>
+                            <span class="line"></span>
+                            <p class="price">R0.00</p>
+                        </div>
+                    </div>
+
+                    <div class="nails-price-list divs">
+                        <div class="list-items">
+                            <p class="items">item 1</p>
+                            <span class="line"></span>
+                            <p class="price">R0.00</p>
+                        </div>
+                        <div class="list-items">
+                            <p class="items">item 1</p>
+                            <span class="line"></span>
+                            <p class="price">R0.00</p>
+                        </div>
+                        <div class="list-items">
+                            <p class="items">item 1</p>
+                            <span class="line"></span>
+                            <p class="price">R0.00</p>
+                        </div>
+                        <div class="list-items">
+                            <p class="items">item 1</p>
+                            <span class="line"></span>
+                            <p class="price">R0.00</p>
+                        </div>
+                        <div class="list-items">
+                            <p class="items">item 1</p>
+                            <span class="line"></span>
+                            <p class="price">R0.00</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="show-all-prices">View All Prices</button>
+            </div>
+        </section>
+    </div>
+
+    <!--Mobile body-->
+    <div class="mobile">
+        <div class="mobile-logo">Logo</div>
+        <section class="mobile-top-section">
+            <div>
+                <h1>WELCOME TO OUR NAIL SALON</h1>
+                <h2>Nails Reinvented</h2>
+                <p>Life is too short to have boring nails</p>
+            </div>
+            <button class="mobile-button"><a href="gallery.html">View Gallery</a></button>
+        </section>
+
+        <section class="mobile-mid-section">
+            <div>
+                <p>Design Perception</p>
+                <h1>Traditional & Modern</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                    ad minim veniam.
+                </p>
+            </div>
+            <button class="bookings">Bookings</button>
+        </section>
+
+			<section class="mobile-bottom-section">
+				<div class="card-one">
+                    <div class="overlay">
+					<div class="nails-price-list divs">
+						Nails
+						<div class="list-items">
+							<p class="items">item 1</p>
+							<span class="line"></span>
+							<p class="price">R0.00</p>
+						</div>
+						<div class="list-items">
+							<p class="items">item 2</p>
+							<span class="line"></span>
+							<p class="price">R0.00</p>
+						</div>
+						<div class="list-items">
+							<p class="items">item 3</p>
+							<span class="line"></span>
+							<p class="price">R0.00</p>
+						</div>
+						<div class="list-items">
+							<p class="items">item 4</p>
+							<span class="line"></span>
+							<p class="price">R0.00</p>
+						</div>
+						<div class="list-items">
+							<p class="items">item 5</p>
+							<span class="line"></span>
+							<p class="price">R0.00</p>
+						</div>
+					</div>
+                    </div>
+				</div>
+
+				<div class="card-two">
+                    <div class="overlay">
+					<div class="haircut-price-list divs">
+						Haircut
+						<div class="list-items">
+							<p class="items">item 1</p>
+							<span class="line"></span>
+							<p class="price">R0.00</p>
+						</div>
+						<div class="list-items">
+							<p class="items">item 2</p>
+							<span class="line"></span>
+							<p class="price">R0.00</p>
+						</div>
+						<div class="list-items">
+							<p class="items">item 3</p>
+							<span class="line"></span>
+							<p class="price">R0.00</p>
+						</div>
+						<div class="list-items">
+							<p class="items">item 4</p>
+							<span class="line"></span>
+							<p class="price">R0.00</p>
+						</div>
+						<div class="list-items">
+							<p class="items">item 5</p>
+							<span class="line"></span>
+							<p class="price">R0.00</p>
+						</div>
+					</div>
+                    </div>
+				</div>
+			</section>
+		</div>
+		<!--End of Mobile body-->
+
+		<footer class="desktop">
+			<div class="footer-container">
+				<div class="logo">Logo</div>
+				<hr />
+				<div class="footer-links">
+					<a href="index.html">Home</a>
+					<a href="gallery.html">Gallery</a>
+					<a href="#">Pricing</a>
+					<a href="#">About</a>
+					<a href="#">Contact</a>
+				</div>
+				<div class="social-links">
+					<a href=""><img src="icons/facebook.png" /></a>
+					<a href=""><img src="icons/instagram.png" /></a>
+					<a href=""><img src="icons/whatsapp.png" /></a>
+					<a href=""><img src="icons/linkedin.png" /></a>
+				</div>
+				<p>Copyright &copy 2024. All rights reserved.</p>
+				<p>
+					<i>Website Designed By <b>Kabelo Ncube</b></i>
+				</p>
+			</div>
+		</footer>
+
+		<div class="mobile">
+			<div class="mobile-footer">
+				<div class="mobile-footer-links">
+					<a href="index.html">Home</a>
+					<a href="gallery.html">Gallery</a>
+					<a>Prices</a>
+					<a>About</a>
+					<a>Contact Us</a>
+				</div>
+				<div class="social-links">
+					<a><img src="icons/facebook.png" /></a>
+					<a><img src="icons/instagram.png" /></a>
+					<a><img src="icons/whatsapp.png" /></a>
+					<a><img src="icons/pinterest.png" /></a>
+				</div>
+
+				<p>All prices and products are subject to availability.</p>
+				<p><i>Copyright &copy 2024. All rights reserved by<i> <a class="kabelo">Kabelo Ncube</span></p>
+			</div>
+		</div>
+
+	
+		<script src="js/script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+[
+{   "id" : "1",
+    "itemName" : "Basic-nail art",
+    "Price" : "R30.00"
+},
+
+{
+    "id" : "2",
+    "itemName" : "Shave & haircut",
+    "Price" : "R20.00"
+},
+{
+    "id" : "3",
+    "itemName" : "Trimming",
+    "Price" : "R20.00"
+},
+{
+    "id" : "4",
+    "itemName" : "Chiskop",
+    "Price" : "R30.00"
+},
+{
+    "id" : "5",
+    "itemName" : "Medium-nail art",
+    "Price" : "R40.00"
+},
+{
+    "id" : "6",
+    "itemName" : "acrylic-nails",
+    "Price" : "R100.00"
+},
+{
+    "id" : "7",
+    "itemName" : "Hi-lo Fade",
+    "Price" : "R110.00"
+},
+{
+    "id" : "8",
+    "itemName" : "chrome-nails",
+    "Price" : "R120.00"
+},
+{
+    "id" : "9",
+    "itemName" : "Mobile-nail service",
+    "Price" : "R500.00"
+},
+{
+    "id" : "10",
+    "itemName" : "Buzz cut",
+    "Price" : "R50.00"
+},
+
+{
+    "id" : "11",
+    "itemName" : "Shave",
+    "Price" : "R20.00"
+},
+{
+    "id" : "12",
+    "itemName" : "nails",
+    "Price" : "R20.00"
+}
+]

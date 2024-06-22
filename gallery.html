@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Nail Salon</title>
+		<link rel="stylesheet" href="css/gallery.css" />
+	</head>
+	<body>
+		<!-- Nav-Bar -->
+		<nav class="desktop-navbar">
+			<div class="logo">Logo</div>
+			<div class="nav-bar">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="#about">About Us</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="#pricing">Pricing</a></li>
+					<li><a href="">Bookings</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<!-- Mobile Nav-bar -->
+		<div class="mobile">
+			<div class="mobile-logo">Logo</div>
+			<div class="menu-icon" onclick="openNav()">
+				<div class="background">
+					<button class="menu__icon">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+				</div>
+			</div>
+			<div id="mySidenav" class="sidenav">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">
+					<div class="background">
+						<button class="menu__icon">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
+					</div>
+				</a>
+				<a href="index.html">Home</a>
+				<a href="#">About Us</a>
+				<a href="gallery.html">Gallery</a>
+				<a href="#">Pricing</a>
+				<a href="" id="bookingLinkMobile">Bookings</a>
+				<a href="#" class="login" onclick="openLoginForm()">Login</a>
+				<a href="#" class="register" onclick="openSignUpForm()">Sign Up</a>
+			</div>
+		</div>
+
+		<!-- Modal for Login and Sign Up Forms -->
+		<div class="modal" id="formModal">
+			<div class="modal-content">
+				<span class="close" onclick="closeModal()">&times;</span>
+				<div class="formContainer" id="loginForm">
+					<h1>Login</h1>
+					<label for="username">Username</label>
+					<input
+						type="text"
+						placeholder="Enter Username"
+						name="username"
+						required
+					/>
+					<label for="password">Password</label>
+					<input
+						type="password"
+						placeholder="Enter Password"
+						name="password"
+						required
+					/>
+					<button type="submit" class="form-btn">Login</button>
+				</div>
+				<div class="formContainer" id="signUpForm">
+					<h1>Sign Up</h1>
+					<label for="username">Username</label>
+					<input
+						type="text"
+						placeholder="Enter Username"
+						name="username"
+						required
+					/>
+					<label for="phoneNumber">Phone Number</label>
+					<input
+						type="text"
+						placeholder="Enter Phone Number"
+						name="phoneNumber"
+						required
+					/>
+					<label for="password">Password</label>
+					<input
+						type="password"
+						placeholder="Enter Password"
+						name="password"
+						required
+					/>
+					<label for="confirmPassword">Confirm Password</label>
+					<input
+						type="password"
+						placeholder="Confirm Password"
+						name="confirmPassword"
+						required
+					/>
+					<button type="submit" class="form-btn">Sign Up</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal for Bookings -->
+		<div id="bookingModal" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeBookingModal()">&times;</span>
+				<h1>Booking</h1>
+				<p>Provide your details</p>
+				<p>We will contact you to confirm the booking</p>
+				<form id="bookingForm" action="#">
+					<!--  <label for="serviceType">Choose a Service:</label>
+                <select id="serviceType" name="serviceType">
+                    <option value="manicure">Manicure</option>
+                    <option value="haircut">Haircut</option>
+                </select>-->
+					<label for="name">Name</label>
+					<input
+						type="text"
+						id="name"
+						placeholder="Enter Name"
+						name="name"
+						required
+					/>
+					<label for="contact">Contact Information:</label>
+					<input
+						type="text"
+						id="contact"
+						placeholder="phone Number"
+						name="contact"
+						required
+					/>
+					<button type="submit">Book Now</button>
+				</form>
+			</div>
+		</div>
+
+		<!--End of Mobile Nav-->
+
+		<div id="quad"></div>
+
+		<script>
+			async function fetchImages() {
+				const response = await fetch("/images");
+				const images = await response.json();
+				return images;
+			}
+
+			function createGallery(images) {
+				const gallery = document.getElementById("quad");
+				gallery.innerHTML = "";
+				images.forEach((image) => {
+					const figure = document.createElement("figure");
+					const img = document.createElement("img");
+					const figcaption = document.createElement("figcaption");
+
+					img.src = `images/${image}`;
+					img.alt = image;
+					figcaption.textContent = image.split(".")[0];
+
+					figure.appendChild(img);
+					figure.appendChild(figcaption);
+					gallery.appendChild(figure);
+
+					if (window.innerWidth > 768) {
+						figure.addEventListener("click", function () {
+							this.classList.toggle("expanded");
+							gallery.classList.toggle("full");
+						});
+					}
+				});
+			}
+
+			document.addEventListener("DOMContentLoaded", async () => {
+				const images = await fetchImages();
+				createGallery(images);
+
+				window.addEventListener("resize", async () => {
+					createGallery(await fetchImages());
+				});
+			});
+		</script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				// Function to open navigation sidebar
+				function openNav() {
+					document.getElementById("mySidenav").style.width = "250px";
+				}
+
+				// Function to close navigation sidebar
+				function closeNav() {
+					document.getElementById("mySidenav").style.width = "0";
+				}
+
+				// Function to open login form modal and hide sign up form
+				function openLoginForm() {
+					document.getElementById("formModal").style.display = "block";
+					document.getElementById("loginForm").style.display = "block";
+					document.getElementById("signUpForm").style.display = "none";
+				}
+
+				// Function to open sign up form modal and hide login form
+				function openSignUpForm() {
+					document.getElementById("formModal").style.display = "block";
+					document.getElementById("signUpForm").style.display = "block";
+					document.getElementById("loginForm").style.display = "none";
+				}
+
+				// Function to close modal (both login and sign up)
+				function closeModal() {
+					document.getElementById("formModal").style.display = "none";
+				}
+
+				// Function to open booking modal
+				function openBookingModal() {
+					document.getElementById("bookingModal").style.display = "block";
+				}
+
+				// Function to close booking modal
+				function closeBookingModal() {
+					document.getElementById("bookingModal").style.display = "none";
+				}
+
+				// Event listener for booking button in mid-section
+				const bookingButton = document.getElementById("bookingButton");
+				if (bookingButton) {
+					bookingButton.addEventListener("click", openBookingModal);
+				}
+
+				// Event listener for booking link in navbar
+				const bookingLink = document.getElementById("bookingLink");
+				if (bookingLink) {
+					bookingLink.addEventListener("click", openBookingModal);
+				}
+
+				// Event listener for booking link in mobile nav
+				const bookingLinkMobile = document.getElementById("bookingLinkMobile");
+				if (bookingLinkMobile) {
+					bookingLinkMobile.addEventListener("click", openBookingModal);
+				}
+
+				// Event listener for booking form submission
+				const bookingForm = document.getElementById("bookingForm");
+				if (bookingForm) {
+					bookingForm.addEventListener("submit", function (event) {
+						event.preventDefault(); // Prevent default form submission
+						const serviceType = bookingForm.serviceType.value;
+						const name = bookingForm.name.value;
+						const contact = bookingForm.contact.value;
+						console.log(
+							`Service Type: ${serviceType}, Name: ${name}, Contact: ${contact}`
+						);
+						closeBookingModal(); // Close modal after form submission
+					});
+				}
+
+				// Event listener to close modal when clicking outside of it
+				window.onclick = function (event) {
+					const formModal = document.getElementById("formModal");
+					const bookingModal = document.getElementById("bookingModal");
+					if (event.target == formModal) {
+						closeModal();
+					} else if (event.target == bookingModal) {
+						closeBookingModal();
+					}
+				};
+
+				// Assign functions to global scope
+				window.openNav = openNav;
+				window.closeNav = closeNav;
+				window.openLoginForm = openLoginForm;
+				window.openSignUpForm = openSignUpForm;
+				window.closeModal = closeModal;
+				window.closeBookingModal = closeBookingModal;
+
+				const menuIcon = document.querySelector(".menu-icon");
+				const navIcon = document.querySelector(".closebtn");
+
+				menuIcon.addEventListener("click", function () {
+					openNav();
+					menuIcon.style.display = "none";
+				});
+
+				navIcon.addEventListener("click", function () {
+					closeNav();
+					menuIcon.style.display = "block";
+				});
+			});
+		</script>
+	</body>
+</html>
