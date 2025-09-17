@@ -314,7 +314,7 @@ footer {
 	padding: 10px;
 }
 
-@media (max-width: 530px) {
+@media (max-width: 768px) {
 	.desktop-navbar {
 		display: none;
 	}
